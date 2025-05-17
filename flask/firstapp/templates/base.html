@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} default block {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1>The base of every webpage</h1>
+    {% block content %}
+
+        <script src="/js/script.js"></script>
+    {% endblock %}
+</body>
+</html>

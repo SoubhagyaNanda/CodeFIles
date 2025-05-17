@@ -1,0 +1,13 @@
+'''
+Fetch the first name and last name of the user with the email id tobias.funke@reqres.in.
+Count the total number of users with avatar URLs containing the substring faces.
+Retrieve all user ids whose first name starts with the letter M.
+List all the full names (first and last names combined) of users.
+Extract all unique domain names from the email addresses.
+Check if any user has the first name George and last name Fields.
+Find the maximum and minimum user IDs in the data.
+List all avatar URLs where the user ID is an odd number.
+Verify if any user's last name contains the substring son.
+Count the number of users whose first name is longer than 6 characters.
+
+'''

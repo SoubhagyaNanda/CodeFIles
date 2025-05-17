@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session/cookies page</title>
+</head>
+<body>
+<h1>Hello world</h1>
+<p>{{ message }}</p>
+<a href="{{ url_for('set_data') }}">Set session data.</a>
+<a href="{{ url_for('get_data') }}">get session data.</a>
+<a href="{{ url_for('clear') }}">Session data clear.</a>
+<a href="{{ url_for('set_cookie') }}">set_cookie</a>
+<a href="{{ url_for('get_cookie') }}">get_cookie</a>
+<a href="{{ url_for('remove_cookie') }}">remove_cookie</a>
+</body>
+</html>

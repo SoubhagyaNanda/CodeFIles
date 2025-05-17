@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} index page {% endblock %}
+
+{% block content %}
+    <h1> hello world </h1>
+        <ul>
+            {% for i in mylist %}
+                <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+
+    <h1>This is template</h1>
+
+<a href="{{ url_for('other') }}"> other </a><br>
+{% endblock %}

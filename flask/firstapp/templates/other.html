@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Other {% endblock %}
+
+{% block content %}
+<h1> This is other page</h1>
+
+{{context}} <br>
+{{context|upper}} <br>
+{{context|lower}} <br>
+{{context|title}} <br>
+{{context|capitalize}} <br>
+{{context|replace('H','k')}} <br>
+{{context|reverse_string}}
+
+
+{% endblock %}

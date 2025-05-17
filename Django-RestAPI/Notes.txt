@@ -1,0 +1,118 @@
+1- What is API?
+    - API stands for Application Programming Interface.
+    - It acts as a two-way communication bridge between frontend and backend.
+
+2- What is restAPI?
+    - REST is stands for Representational state transfer.
+    - It organize how web application talk to each other, Separating what the user see (frontend) from what runs behind the scenes(Backend).
+
+3- Core principle of REST
+    Stateless --> The server doesn't store any information about the client between request.
+    example --> When you order food through waiter, Waiter will serve you the food after serving waiter doesn't need remember your ordered food.
+                That's how restapi work. After fetching the request it doesn't store user entered data.
+
+    Client server-Architecture --> The app(client) ask for things(data) and the server does what's requested(sends data or makes changes).
+    example --> When the client asked for data the server will give him the data using the api endpoints. So it works between client and server.
+
+4- Standardized Interface.
+    - REST APIs rely on a set of standard methods (GET, POST, PUT, DELETE) for interfacing with resources.
+
+    GET- Retrieving the resource
+    POST- Creating the resource
+    PUT- Updating the resource
+    Delete- Deleting the resource
+
+5- Easy to read data
+    - REST APIs return the response in a standardized easy to read formats, typically JSON or XML formats.
+
+6- Web application end points
+    - There are two types of url end points.
+    - Web application end points Where you can directly access website using browsers. (Example- http://127.0.0.1:8000/students/)
+    - API end points return the data to integrate with frontend. (Example- http://127.0.0.1:8000/api/v1/students/)
+    - You can't directly access api end points. To do that you have to go through the backend or POSTMAN.
+
+    Note- 127.0.0.1:8000 This a domain name.
+
+7- Mixins
+    - Mixins are code reusable code classes in object-oriented programming that provide specific functionalities.
+    - In django rest framework, mixins are used to add common functionalities to views.
+    - ig- CREATE, READ, UPDATE, DELETE
+
+8- Builtin Mixins
+    - Django REST Framework  provide 5 built-in mixins to handel common functionalities in our class based views so that we don't have to repeat our code.
+    - ListModelMixin --> Once you extend this ListModelMixin in your class based view you have the support for returning the list of objects automatically.
+                         Which also means it provides you built-in method called list()
+
+
+    - CreateModelMixin --> It will automatically create the new object in the database using its built-in method called create()
+
+    - RetriewModelMixin --> RetriewModelMixin will give you the support for retrieving a single object. Using its built-in method called retrieve()
+
+    - UpdateModelMixin --> UpdateModelMixin will update the existing data using primary key and built-in method update()
+
+    - DestroyModelMixin --> DestroyModelMixin will delete the existing data using primary key and built-in method delete()
+
+9- In class we have to inherit class(mixins, generics.GenericAPIView)
+    - generics.GenericAPIView acts as a foundationlas class for building most api view. It provides essentional functionalityes for handling incoming HTTP request such as get(), post(), put(), delete()
+    - It also formats the outgoing responses in a structured way.
+    - {
+        'id':1
+        'name': 'Joe Doe'
+        'desig': 'software engineer'
+      }
+    - for example to fetch all the employee we create a class base view like
+        class Employee(mixins.ListModelMixin, generics.GenericsAPIView):
+                        queryset = Employees.objects.all()
+                        serializer_class = employeeSerializers
+                        def get(self,request):
+                            return self.list(request) # List method will accept the request and give you the Employee data.
+
+    - To create a new employee data
+        class Employee(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+                        queryset = Employees.objects.all()
+                        serializer_class = employeeSerializers
+                        def get(self, request):
+                            return self.list(request) # Here we use mixins.ListModelMixin to list the data after creations.
+
+                        def post(self, request):
+                            return self.create(request) # Create is function which is comming from create model mixins.
+
+    - To retrieve, update, delete employee data
+        class employeemixinsdetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
+                        queryset = Employees.objects.all()
+                        serializer_class = employeeSerializers
+
+                        def get(self, request, pk):
+                            return self.retrieve(request, pk)
+
+                        def put(self, request, pk):
+                            return self.update(request, pk)
+
+                        def delete(self, request, pk):
+                            return self.destroy(request, pk)
+
+10- Generics
+    - generics.ListAPIView --> Used for listing the data.
+    - generics.CreateAPIView --> Used for creating data.
+    - generics.ListCreateAPIView --> It is the combination of listing data and creating data.
+
+    - generics.RetrieveAPIView --> Used for retrieving tha data.
+    - generics.UpdateAPIView --> Used for updating the data.
+    - generics.DestroyAPIView --> Used for deleting the data.
+    - generics.RetrieveUpdateDestroyAPIView --> It will used for three combination at once. Like Retrieving, Updating, Deleting the data.
+
+11- Pagination
+    - There are 3 in-built pagination class are there.
+    - PageNumberPagination (url- blog/?page=10)
+    - LimitOffsetPagination (url- blog/?limit=10&offset=0)
+    - CursorPagination
+    - Mostly PageNumberPagination and LimitOffsetPagination are used in companys.
+
+        PageNumberPagination --> PageNumberPagination takes page size parameter and return the response accordingly.
+                                 example- If the url pattern is blog/?page=10 it will give you 10 records in a single page.
+
+        LimitOffsetPagination --> LimitOffsetPagination controls how many items you want to see in a single page.
+                                  - It takes two parameters in url limit and offset
+                                  - if offset=0, you get the 1st 10 blog(items 1-10). (/blog/?limit=10&offset=0)
+                                  - if offset=10, you get the next 10 blog(items 11-20). (/blog/?limit=10&offset=10)
+                                  - if offset=90, you get the next 10 blog(items 91-100). (/blog/?limit=10&offset=90)

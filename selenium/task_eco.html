@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-commerce Transactions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-height: 600px;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <h1>E-commerce Transactions</h1>
+  <div class="container">
+    <table id="ecomTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Product Name</th>
+          <th>Date</th>
+          <th>Price</th>
+          <th>Month</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const productNames = ["Laptop", "Phone", "Tablet", "Monitor", "Camera", "Watch"];
+    const months = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"];
+
+    function getRandomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function randomDate() {
+      const start = new Date(2023, 0, 1);
+      const end = new Date();
+      const d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+      return d.toISOString().split('T')[0];
+    }
+
+    function generateRow() {
+      const name = `User${Math.floor(Math.random() * 1000)}`;
+      const address = `${Math.floor(Math.random() * 999)} Main St, City`;
+      const product = getRandomItem(productNames);
+      const date = randomDate();
+      const price = `$${(Math.random() * 900 + 100).toFixed(2)}`;
+      const month = getRandomItem(months);
+      return `<tr>
+                <td>${name}</td>
+                <td>${address}</td>
+                <td>${product}</td>
+                <td>${date}</td>
+                <td>${price}</td>
+                <td>${month}</td>
+              </tr>`;
+    }
+
+    const tableBody = document.getElementById("tableBody");
+    for (let i = 0; i < 1000; i++) {
+      tableBody.innerHTML += generateRow();
+    }
+  </script>
+</body>
+</html>

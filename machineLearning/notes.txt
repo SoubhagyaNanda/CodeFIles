@@ -1,0 +1,120 @@
+ 1 - Machine learning is the science of getting computers to learn and act like humans do and improve their learning over time
+     in autonomous fashion by feeding them data and information in the form of observations and real world interaction.
+
+ 2 - Machine learning system learn from historical data and builds the prediction models and whenever it receives new data predict the output for it.
+
+                           Training
+        (input past data) ----------> (machine learning algorithm) ------> (Building Logical Models) ---------> (Output)
+                                                                                                      New data
+ 3 - How does machine learning work?
+       - In a traditional programing language like c,java,python etcetera to get an output we have to give logic and some input into it.
+         Based on our logic and input all languages will give you output.
+
+         example-->
+             input1       input2     output
+                2            2         4
+                2            3         6
+       - In the case of machine learning we have to give our input & output data also then Ml will generate a program based on our input and output data.
+       - When we put a new data in ML it will take the input and based on the program whatever he designed based on the program it will give us new data.
+             input1        input2     output
+                5             1          5
+                5             2          10
+                6             3          ? (Based on the program it will give us new data)
+
+                                                  -- ML WORK --
+                (Data(Input) and program)  -----> (Traditional programing) ------> (Output)
+                (Data(Input) and Output)  -----> (Machine Learning) ------> (Program)
+
+
+ 4 -                                          --- Classification of ML ---
+
+        Supervised Learning, Unsupervised learning, Reinforcement learning
+        Supervised Learning ---> - It is used for future predictions.
+                                 - If we are trying to buy a house you have to ask a broker for the price. That case
+                                   supervised learning will check all the house price and infrastructure near to that house based on them, It will check that new
+                                   house structures and based on past data it will tell you that new house price.
+
+        Unsupervised Learning ---> - It is used for grouping
+                                   - Based on the data pattern or nature it will create group for separate data.
+                                   - If you have mixed fruits like mango,banana,apple it will separate them like one group
+                                     for all the mangoes and one group for banana and one group for apple.
+
+        Reinforcement Learning ---> - It will act based on your actions.
+                                    - When you play ludo with computers, In the backend you are interacting with reinforcement learning.
+
+
+                                          --- Advantages & Disadvantages of ML ---
+
+ 5 - Advantages of ML ---> 1. Easily identifies trends and patterns
+                           2. No human intervention needed
+                           3. Continuous improvement.
+                           4. Handling multy-dimensional and multi-variety data.
+                           5. Wide application
+
+ 6 - Disadvantage of ML ---> 1. Data acquisition
+                             2. Time and resources
+                             3. Interpretation of result
+                             4. High error susceptibility
+
+
+                                                   --- Use of ML ---
+
+ 7 - Use of ML- 1. Automatic language translation
+                2. Medical diagnosis
+                3. Stock market trading
+                4. Online fraud detection
+                5. Virtual personal assistant
+                6. Email span & Malware filtering
+                7. Self driving car
+                8. Product recommendations
+                9. Traffic prediction
+                10. Speech recognition
+                11. Image recognition
+
+
+                                                --- Variables in ML ---
+
+ 8 - Types of variables in ML --->
+    -> Variables - In a tabular format data all the columns are called variable.
+                 - Variables are of 4types, Numerical data, Categorical data, Dates & Times data, Mixed data.
+
+        Numerical Data - In these data we have numbers/digits either positive or negative.
+                       - Numerical data are two types int and float.
+
+                         IMP--> Numeric data has two types Discrete and Continuous
+
+                        Discrete -->     - Discrete data is called as repeated data, Which called repeatedly.
+                                         - In a table we have a column data of digits like 1 2 3 4 5 then again 1 1 1 2 3 4 4 3 3
+                                           repeating same numbers is called discrete data.
+
+                        Continuous -->   - Continuous data is creating numbers between a certain range.
+                                         - Creating numbers between, 1 to 5, (1 1.1 1.2 1.3 1.4 1.43 1.57) these are called continuous data.
+
+        Categorical Data - Categorical data is called string data type, It is also called object data.
+                         - We have two types of Categorical data, Ordinal and Nominal.
+
+                         Nominal Data - Nominal data are not connected with each other either internally or outer.
+                                      - Let's take a column of programming language's like Java, python, c, c++, Ruby, JavaScript etc.
+                                        these are not similar to each other only random values to a column it is called nominal data.
+
+                         Ordinal Data - It is an order type data, Values are stored in proper order.
+                                      - If we take a tshirt it has a proper size order small, medium, large, extra large Those type of
+                                        data is called ordinal data.
+
+        Date & Time data - Date time can contain date only, time only or date time both.
+        Mixed Variables - Variables which contain numbers and categories data both.
+                        - In short form data which contain number and string both
+                        - It is also called object data type.
+
+
+ 9 - Data Cleaning
+            - It is the process of preparing data for analysis, Ml or DL by removing or
+              modifying data that is incorrect, incomplete, irrelevant duplicated, or improperly formatted.
+
+     Missing Value - 
+
+
+
+
+
+
