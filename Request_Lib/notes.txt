@@ -1,0 +1,9 @@
+What is request library?
+    ~ The request library lets you make HTTP requests programmatically.
+    ~ It is like your python acting like a browser. Sending GET request, POST request responses.
+
+
+>> To use it 1st you have to import it.
+    import requests
+
+>> jsonplaceholder free wesite for get post request.

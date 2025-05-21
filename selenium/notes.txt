@@ -146,3 +146,16 @@ IMP--> driver.quit() # It is used to close multiple window.
 
 13- iframe
     driver.switch_to.default_content() # It is used to back to the main window. While using iframe.
+
+14- Wait Mechanism
+    >> Wait mechanism are of three types.
+        - Implicit wait
+        - Explicit wait
+        - Fluent wait
+
+    Implicit wait- It is a common or global wait mechanism.
+                 - No need to import it. We can use it directly.
+                 - driver.implicitly_wait(5)
+
+IMP >> visibility_of_element_located() - Wait until the element is visibil
+       presenc_of_element_located() - Wait until the element is present
