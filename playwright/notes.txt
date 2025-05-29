@@ -1,0 +1,152 @@
+Playwright-
+   It is used for UI testing.
+   - By using playwright we can do end-end testing.
+   - Microsoft build playwright.
+   - Playwright automate the browser like chrom, safari, firefox
+
+Features of playwright-
+    Cross-browser support- It will support multiple browser.
+    Multiple language support- Javascript, Python, C#
+    Auto-waiting- Automatically wait for the element to be ready.
+    Headless and UI mode- It can run test with or without browser.
+    Network and mocking- Intercept and mock netwek request and response. (It will directly connect with the user and server.
+    Parallel test execution- Run test in parallel for faster result.
+        Selenium is slow in parallel test execution. Because third party module make selenium slow.
+    Code generation- Built-in test recorder generates test scripts by recording your action.
+    Multiple browser context- Simulate multiple user or sessions in the same tests.
+        We can test multiple browser and user at a single time.
+    Mobile and device emulation- Emulates mobile browser easily.(IOS and Android)
+
+
+note>> Playwright use RestAPI.
+
+
+What is the difference between Xpath and CSS?
+    Xpath use navigation with the help of siblings.
+    CSS is faster that Xpath.
+
+Difference between selenium and playwright.
+
+Selenium- It is a widely browser automation framework.
+         - It support python, java, C# and javascript.
+         - Selenium has old architecture and soupAPI
+         - Selenium used manual wait mechanism.
+         - Multiple tabs limited supported
+         - Network mocking limited in selenium
+         - Selenium used thirtparty tool for record.
+         - Language flexibility selenium.
+
+playwright- It is an automation tool faster than selenium.
+           - It also support python, java, C#, Javascript but it mostly support typescript.
+           - Playwright is faster because of RestAPI
+           - Its used auto wait mechanism
+           - Multiple tabs fully supported.
+           - Playwright network mocking is powerfull.
+           - Codegen is used for recording.
+           - Browser coverage most by playwright by using webKit
+
+Note>> We can use playwright and selenium in a single project.
+
+Note>> async_api is more codes are more complex than sync_api
+
+To import sync_api we use - from playwright.sync_api import sync_playwright
+
+Note >> async was used in microservices.
+        sync was used wherever microservices not used.
+
+
+context = browser.new_context() >>> This will open a new tab.
+page = context.new_page() >> This will open a new page.
+browser.close() >> It is used to close the contextManager
+
+playwright goto() used to called restAPI which is faster.
+selenium get() used to call soupAPI which is slower.
+
+
+CSS locater-- It only support id and class.
+              - It will connect one of one faster.
+              - If you chose class to locate then .classname
+              - If you chose id then #idname
+
+Note >> Every Xpath have a node like parent which he follows.
+
+In Xpath // meaning parent node. and / meaning child node.
+
+
+>> We can use css locater in two types
+    .classname or #idname
+    tagname.classname or tagname#idname
+
+   >> Second one is much faster because it will directly goes to the tag. but in fast case it will search the tagname.
+
+> In real time we mostly avoid Xpath. But it is used when we didn't find any locater.
+
+Combination Selector
+div.classname
+
+-->> tagname > tagname
+   div > input -- It will give the input values those are under div tag.
+
+
+Locating elements-
+CSS Selectors
+
+page.locator()  In playwright locator it will identify automatycally what kind of locator it is.
+
+page.locator(tagname#idname) or (tagname.classname) css selector example.
+
+page.locator(tagname#idname).fill("text..") fill function is used to send texts..
+page.locator('css').click
+
+
+Role text and custom
+When you passed the value through attribute
+
+
+page.get_by_role('button', name='Log in').click() -- Name meaning button name.
+
+page.get_by_text("tex").fill()  It will find by text.
+
+
+page.locator('css,xpath').type('valuee', delay=1000)      type func work like fill
+fill() will fill the value instantly but type() will fill the vale after a certain amount of time.
+
+check and radio button0
+page.locator('').click()
+
+select options
+page.locator("select#country").select_option('IN')
+page.locator("select#country").select_option(lable= 'INDIA')
+page.locator("select#country").select_option(index= 2)
+page.locator("select#country").select_option(['python', 'java']) select multiple options
+
+Explicit wait-
+    page.wait_for_selector("div#idnme")
+        attached, detached, visible, hidden
+        Attached is used to attach a file.
+        detached used to remove a file if attached
+        If a file is hidden then we use visible
+        If a file is visible the we used hidden.
+
+    page.wait_for_timeout()
+        used to wait for a specific amount of time. It is in milsec
+
+    page.wait_for_function()
+        Used to wait for javascript function.
+
+    page.wait_for_load_state()
+        Used in network related work.
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
