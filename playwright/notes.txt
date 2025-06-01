@@ -137,9 +137,18 @@ Explicit wait-
     page.wait_for_load_state()
         Used in network related work.
 
-    
 
+page.set_viewport_size({"width": 12800, "hight":72000}) used to resize the webpage.
 
+Note- Data will always be in json format when it comes through browser.
+
+page.evaluate("window.scrollTo(0,document.body.scrollHeight);") -->> It is used to scroll down to the page footer.
+
+selected= dropdown.input_value() -->> It is used to print the input value from the page source.
+
+file_input.set_input_files(file_path) -->> Used to send files.
+
+print(page.locator('div#uploaded-files').text_content()) -->> text_content used to print value from frontend
 
 
 
