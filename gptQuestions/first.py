@@ -125,5 +125,14 @@ print(factorial(data))
 # Create a BankAccount class with methods: deposit(), withdraw(), and get_balance().
 
 class BankAccount:
-    def deposit(self):
-        pass
+    def __init__(self, account_holder, intial_amount=100):
+        self.account_holder= account_holder
+        self.balance= intial_amount
+
+    def credit(self, amount):
+        self.balance += amount
+
+
+
+
+ob= BankAccount(1234566, 100)
