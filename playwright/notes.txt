@@ -150,10 +150,34 @@ file_input.set_input_files(file_path) -->> Used to send files.
 
 print(page.locator('div#uploaded-files').text_content()) -->> text_content used to print value from frontend
 
+text_area = frame.locator('#tinymce') -->> It is used to access the element inside the frame.
+
+page.screenshot(path='filename.png') -->> Used to store screenshot.
+
+
+context.expect_page() -->> It means i am expecting a new page.
+
+print(newPage.locator("//h3[text()='New Content']")).text_content() -->> It is used to print the text in that perticular location.
+
+
+page1.bring_to_front() -->> Used to switch between pages
 
 
 
+API Notes--
 
+    What is HTTP- It is a API channel.
+
+    RestAPI- ++ Representional state transfer.
+             ++ RestAPI is work on HTTP methods
+             ++ Restapi accept json and xml data format.
+             ++ If you send json data in return you will get json data.
+             ++ If you send xml data in return you will get xml data.
+             ++ If you send json data in return you want xml data you will get that.
+             ++ if you send xml data in return you want json data you will get that.
+
+        ++ Restapi is lighter than the soupAPI
+        ++ Restapi is stateless meaning each request should be independent.
 
 
 
