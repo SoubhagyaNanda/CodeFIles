@@ -14,7 +14,7 @@
 
     * What is Selenium Grid?
         - selenium grid is mainly used for parallel testing.
-        - ig --> Testing different browsers at same time is called selenium grid.
+        - Example --> Testing different browsers at same time is called selenium grid.
 
     * What is Selenium IDE?
         - Selenium Integrated Development Environment.
@@ -28,23 +28,24 @@
         - Webdriver is an interface.
         - Webdriver ia a part of selenium.
         - Webdriver directly interact with browser without any issue.
-        - So Selenium webdriver is a interface who directly interact with browsers to run the app.
-        Note - When webdriver connect with browsers it will call API.
+        - So Selenium webdriver is an interface who directly interact with browsers to run the app.
+
+Note - When webdriver connect with browsers it will call API.
 
 3- How selenium works?
     - Selenium connect with webdriver and webdriver connect with Selenium API.
-    - Start selenium server (We called selenium server either Hub/Node).
-    - After connecting with server selenium check what URL has been given and then it send that
+    - Start selenium server (We called selenium server or either Hub/Node).
+    - After connecting with server selenium check what URL has been given then it send that
       url to applications server through API call.
     - After getting API Response it will go the webdriver then it will open browser and navigate to webpage.
     - Selenium navigating system works from browser to browser.
     - Mainly selenium send GET request to the API to fetch data.
 
-4- What is URL?
+4- What is URL? (Uniform Resource Locator)
     - Uniq identification of a URL.
 
-5- Locater in selenium.
-    - There are 8 types of locater available.
+5- Locator in selenium.
+    - There are 8 types of locator available.
         -- id
         -- name
         -- classname
@@ -52,7 +53,9 @@
         -- css selector
         -- xpath
         -- link text
-        - partial link text
+        -- partial link text
+
+Note- Link text and partial link text used for anchor tag.
 
 6- id - To find id we use find_element(By.ID, 'IDName')
       - We will send data using send_keys('Value')
@@ -61,22 +64,23 @@
                import time
                from selenium.webdriver.common.by import By
 
-               # print(dir(selenium))
                driver = webdriver.Chrome()
                driver.get('https://www.facebook.com/login/')
 
                email= driver.find_element(By.ID, "email")
                password= driver.find_element(By.ID, "password")
+
                email.send_keys('soubhagya@gmail.com')
                password.send_keys('abc123')
+
                submit= driver.find_element(By.ID, 'submit')
                submit.click()
 
                time.sleep(5)
                driver.quit()
 
-      - quit() function is used to close the open webdriver.
-      - For any button tag we used click() function
+- quit() function is used to close the open webdriver.
+- For any button tag we used click() function
 
 7- xpath --> In xpath we have two path
              - Absolute path
@@ -84,32 +88,39 @@
 
      (*) Absolute path- It is a static xpath starting from node root. Staring from parent to child.
              -> to use absolute path we have node root(parent-child relationship)
-             -> If we have radio buttons then we use double slash to go for the parent //
+             -> If we have radio buttons then we use double ( // ) slash to go for the parent.
 
-          example- //div/span/span[2]/label/input #This is called custom path.
+          example- //div/span/span[2]/label/input
+          #This is called custom path.
                 --> If we don't have any ID or name to test the data we used custom path.
                 --> male = driver.find_element(By.XPATH, //div/span/span[2]/label/input).click()
 
 
      (*) Relative xpath- It is a dynamic xpath, It is looking for attribute and value.
                 -> //tagname[text()='text_name']/preceding-sibling::div
-                -> //div[text()='SAMSUNG']/preceding-sibling::div                             # In function we don't use @
+                -> //div[text()='SAMSUNG']/preceding-sibling::div
+                   # In function we don't use @
 
-     Note=> //tagname[@attribute='value'], //input[@value='2']  # @is applicable only for attribute
+     Note=> //tagname[@attribute='value'], //input[@value='2']
+             @ is applicable only for attribute.
 
 8- Sibling are two types in python
     - Following-sibling --> If you are going Upper to lower it is called following-sibling. # It is for absolute path
     - preceding-sibling --> If you are going lower to upper it is called preceding-sibling. # It is for Relative path
-    - //div[text()='SAMSUNG']/preceding-sibling::div # preceding-sibling example.
+
+    - //div[text()='SAMSUNG']/preceding-sibling::div  # preceding-sibling example.
 
     jump to parent -- //tagname[@value='value']/parent::parent_tagname
+
 
 9- Dropdown
     - There are two types of dropdown
         -- Selective dropdown
         -- Auto suggestive dropdown
 
-    How to use Select-
+
+    How to use Select?
+
         from selenium.webdriver.support.select import Select
 
         variable_name= Select(driver.find_element(By.ID, value))
@@ -120,7 +131,7 @@
         ** select_by_visible_text()
         ** all_selected_options()
 
-        (Q) difference between verification and assertion.
+(Q) difference between verification and assertion.
 
 
 10- Alert and Popup
@@ -129,23 +140,29 @@
     driver= webdriver.Chrome()
     driver.get('https://rahulshettyacademy.com/AutomationPractice/')
 
-    driver.execute_script("window.open('')") # execute_script is used to switch from one tab to another.
+    driver.execute_script("window.open('')")
+    # execute_script is used to switch from one tab to another.
 
     driver.close()
 
-    ~ driver.window_handles # It is used to handel other tabs.
+    ~ driver.window_handles
+    # It is used to handel other tabs.
+
     ~ driver.switch_to.window()
 
 12- Window
-    driver.current_window_handel (it is used for main window)
-    - driver.window_handels return type is list.
+    driver.current_window_handel
+    # it is used for main window
+
+    - driver.window_handel return type is list.
 
 
 IMP--> driver.quit() # It is used to close multiple window.
        driver.close() # it is used to close single window.
 
 13- iframe
-    driver.switch_to.default_content() # It is used to back to the main window. While using iframe.
+    driver.switch_to.default_content()
+    # It is used to back to the main window while using iframe.
 
 14- Wait Mechanism
     >> Wait mechanism are of three types.
@@ -157,5 +174,5 @@ IMP--> driver.quit() # It is used to close multiple window.
                  - No need to import it. We can use it directly.
                  - driver.implicitly_wait(5)
 
-IMP >> visibility_of_element_located() - Wait until the element is visibil
+IMP >> visibility_of_element_located() - Wait until the element is visibl
        presenc_of_element_located() - Wait until the element is present
