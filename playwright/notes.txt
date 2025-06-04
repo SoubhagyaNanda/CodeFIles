@@ -168,7 +168,7 @@ API Notes--
 
     What is HTTP- It is a API channel.
 
-    RestAPI- ++ Representional state transfer.
+    RestAPI- ++ Representational State Transfer Application Programming Interface.
              ++ RestAPI is work on HTTP methods
              ++ Restapi accept json and xml data format.
              ++ If you send json data in return you will get json data.
@@ -178,6 +178,16 @@ API Notes--
 
         ++ Restapi is lighter than the soupAPI
         ++ Restapi is stateless meaning each request should be independent.
+
+    soupAPI- Simple object access protocol.
+             -- It is a protocol based api
+             -- It is used only XML for data exchange.
+             -- XML is strictly define. There is module called WSDL( Web service Description Language ) It will do encription and decripted automatically
+                That's why soupAPI is heavier.
+
+
+    Status Codes-- 200 ok >> Successful response.
+                ++ 201 created when data is created when we used put or post method.
 
 
 
