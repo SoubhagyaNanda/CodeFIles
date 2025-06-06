@@ -4,7 +4,7 @@ import time
 from selenium.webdriver.common.by import By
 
 
-# print(dir(selenium))
+print(dir(selenium))
 driver = webdriver.Chrome()
 driver.get('https://www.facebook.com/login/')
 

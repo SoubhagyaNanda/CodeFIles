@@ -189,6 +189,23 @@ API Notes--
     Status Codes-- 200 ok >> Successful response.
                 ++ 201 created when data is created when we used put or post method.
 
+Post_API Call --
+
+Note-- When we do any UI testing then it is called Responsive Testing.
+       Wait Mechanism is used to Rendering page.
+
+    ++ When you do a post request 2things are required.
+        -- Authentication
+        -- Payload It is used to sending data to the server to  create json data in server.
+
+MVC-->> Model View Controller
+
+    Model-> Where we write business logic codes and database.
+    Controller-> Handels the user input.
+    View-> Where we write the backend logics.
+
+
+jsonify--> When you return a data it is called jsonify.
 
 
 
