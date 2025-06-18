@@ -208,5 +208,6 @@ MVC-->> Model View Controller
 jsonify--> When you return a data it is called jsonify.
 
 
-
-
+Unititesting- It means below ground level testing.
+            ++ There is no verification in unittest.
+            ++ We don't use assert in unittest we use assertEqual.
