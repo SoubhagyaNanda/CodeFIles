@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import time
 
 #webpage
@@ -16,17 +18,19 @@ email= "soubhagyaranjannanda360@gmail.com"
 password= "wejfij"
 
 # Locator
-email_loc= "(//input[@id='login'])[1]"
-password_loc= "(//input[@id='password'])[1]"
-login_loc= "button[type='submit']"
+wait = WebDriverWait(driver, 10)
 
-email_input= driver.find_element(By.XPATH, email_loc)
-# assert email_input.is_displayed()
-password_input= driver.find_element(By.XPATH, password_loc)
-# assert password_input.is_displayed()
+email_input = wait.until(EC.element_to_be_clickable((By.ID, "login")))
+email_input.send_keys(email)
 
-login_btn= driver.find_element(By.CSS_SELECTOR, login_loc)
-# assert login_btn.is_displayed()
+password_input = wait.until(EC.element_to_be_clickable((By.ID, "password")))
+password_input.send_keys(password)
+
+# Wait for the login button to be enabled and clickable
+login_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
+time.sleep(10)
+login_btn.click()
+
 
 # Sending Values
 email_input.send_keys(email)
